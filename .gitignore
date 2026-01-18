@@ -205,3 +205,33 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ============================================
+# Project Specific Rules (CA6002)
+# ============================================
+
+# System Files
+**/.DS_Store
+
+# Temporary/Draft folders
+Assignment/choice/
+
+# Large Datasets (Home Credit)
+**/application_train.csv
+**/application_test.csv
+**/home-credit-default-risk/
+
+# E-commerce Datasets
+**/ecommerce_customer_behavior_dataset*.csv
+
+# Model Files
+**/models/*.txt
+**/models/*.pkl
+
+# Generated Outputs
+**/outputs/predictions/
+**/outputs/logs/
+**/notebooks/logs/
+
+# Timestamped visualizations (keep non-timestamped for versioning)
+**/outputs/visualizations/*_*.png

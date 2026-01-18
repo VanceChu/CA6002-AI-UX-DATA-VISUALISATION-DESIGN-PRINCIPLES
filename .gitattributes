@@ -1,0 +1,7 @@
+Assignment/lightgbm_pipeline/home-credit-default-risk/bureau.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/bureau_balance.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/credit_card_balance.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/installments_payments.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/previous_application.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/POS_CASH_balance.csv filter=lfs diff=lfs merge=lfs -text
+Assignment/lightgbm_pipeline/home-credit-default-risk/application_train.csv filter=lfs diff=lfs merge=lfs -text

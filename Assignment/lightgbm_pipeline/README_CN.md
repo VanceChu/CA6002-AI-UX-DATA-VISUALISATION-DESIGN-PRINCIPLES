@@ -10,17 +10,34 @@
 lightgbm_pipeline/
 ├── README.md                 # 英文说明文档
 ├── README_CN.md              # 本文件 (中文说明文档)
+├── requirements.txt          # Notebook/脚本依赖清单
 ├── notebooks/
 │   ├── lightgbm_pipeline_notebook.ipynb          # 主 Notebook (支持训练/推理模式)
 │   └── lightgbm_pipeline_notebook_executed.ipynb # 已运行的 Notebook (包含输出结果)
 ├── scripts/
 │   └── lightgbm_with_simple_features.py          # 原始 Python 脚本
-└── models/                                       # 保存的模型 (训练后生成)
-    ├── lgbm_fold_0.txt ~ lgbm_fold_9.txt        # 10 折模型文件 (LightGBM 原生格式)
-    └── feature_list.pkl                          # 推理用的特征列表
+├── models/                                       # 保存的模型 (训练后生成)
+│   ├── lgbm_fold_0.txt ~ lgbm_fold_9.txt         # 10 折模型文件 (LightGBM 原生格式)
+│   └── feature_list.pkl                          # 推理用的特征列表
+├── outputs/                                      # 训练/推理输出
+│   ├── exports/                                  # 导出结果 (表格/图片)
+│   ├── visualizations/                           # 图表与可视化
+│   ├── predictions/                              # 提交文件
+│   └── logs/                                     # 指标与运行日志
+└── home-credit-default-risk/                     # Kaggle 数据 (Git LFS)
 
 **注意**: 所有输出文件 (提交结果、图表、日志) 都会自动添加时间戳后缀 (例如 `_20260117_232817`) 防止覆盖。
 ```
+
+## 环境配置 (Environment Setup)
+
+安装依赖：
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+使用 `jupyter lab` 或 `jupyter notebook` 打开 Notebook。
 
 ## 使用方法 (Usage)
 
@@ -61,7 +78,9 @@ DEBUG = False       # True: 使用 10000 行数据快速测试
 
 ## 数据要求 (Data Requirements)
 
-请将竞赛数据放置在 `./home-credit-default-risk/` 目录下：
+竞赛数据位于 `./home-credit-default-risk/`。大型 CSV 使用 Git LFS 管理，克隆后如有需要请执行 `git lfs pull`。
+
+流水线使用的文件：
 - application_train.csv
 - application_test.csv
 - bureau.csv
@@ -70,14 +89,9 @@ DEBUG = False       # True: 使用 10000 行数据快速测试
 - POS_CASH_balance.csv
 - installments_payments.csv
 - credit_card_balance.csv
+- sample_submission.csv
+- HomeCredit_columns_description.csv (参考说明)
 
 ## 依赖 (Dependencies)
 
-- Python 3.8+
-- lightgbm
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
-- seaborn
-- joblib
+完整依赖见 `requirements.txt` (Python 3.8+)。主要库包括 LightGBM、pandas、numpy、scikit-learn、matplotlib、seaborn、joblib 和 SHAP。

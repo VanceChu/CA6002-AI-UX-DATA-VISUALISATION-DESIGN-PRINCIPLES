@@ -9,17 +9,35 @@ This project implements a complete machine learning pipeline for the [Home Credi
 ```
 lightgbm_pipeline/
 ├── README.md                 # This file
+├── README_CN.md              # Chinese README
+├── requirements.txt          # Python dependencies for notebooks/scripts
 ├── notebooks/
 │   ├── lightgbm_pipeline_notebook.ipynb          # Main notebook (supports train/inference modes)
 │   └── lightgbm_pipeline_notebook_executed.ipynb # Executed notebook with outputs
 ├── scripts/
 │   └── lightgbm_with_simple_features.py          # Original Python script
-└── models/                                       # Saved models (generated after training)
-    ├── lgbm_fold_0.txt ~ lgbm_fold_9.txt        # 10 fold models (LightGBM native format)
-    └── feature_list.pkl                          # Feature list for inference
+├── models/                                       # Saved models (generated after training)
+│   ├── lgbm_fold_0.txt ~ lgbm_fold_9.txt         # 10 fold models (LightGBM native format)
+│   └── feature_list.pkl                          # Feature list for inference
+├── outputs/                                      # Training/inference outputs
+│   ├── exports/                                  # Exported artifacts (tables/plots)
+│   ├── visualizations/                           # Charts and figures
+│   ├── predictions/                              # Submission files
+│   └── logs/                                     # Metrics and run logs
+└── home-credit-default-risk/                     # Kaggle data (Git LFS)
 
 **Note**: All output files (predictions, visualizations, logs) are automatically suffixed with a timestamp (e.g., `_20260117_232817`) to prevent overwriting.
 ```
+
+## Environment Setup
+
+Install dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Launch notebooks with `jupyter lab` or `jupyter notebook`.
 
 ## Usage
 
@@ -60,7 +78,9 @@ DEBUG = False       # True: use 10000 rows for quick testing
 
 ## Data Requirements
 
-Place the competition data in `./home-credit-default-risk/`:
+The competition data lives in `./home-credit-default-risk/`. Large CSVs are tracked with Git LFS; after cloning, run `git lfs pull` if needed.
+
+Files used by the pipeline:
 - application_train.csv
 - application_test.csv
 - bureau.csv
@@ -69,14 +89,9 @@ Place the competition data in `./home-credit-default-risk/`:
 - POS_CASH_balance.csv
 - installments_payments.csv
 - credit_card_balance.csv
+- sample_submission.csv
+- HomeCredit_columns_description.csv (reference)
 
 ## Dependencies
 
-- Python 3.8+
-- lightgbm
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
-- seaborn
-- joblib
+See `requirements.txt` for the full list (Python 3.8+). Key libraries include LightGBM, pandas, numpy, scikit-learn, matplotlib, seaborn, joblib, and SHAP.

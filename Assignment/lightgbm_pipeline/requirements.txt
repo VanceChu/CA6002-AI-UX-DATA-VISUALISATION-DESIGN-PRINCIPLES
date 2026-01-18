@@ -6,6 +6,7 @@ matplotlib
 notebook
 numpy
 pandas
+pyarrow
 scikit-learn
 seaborn
 shap
